@@ -12,6 +12,20 @@ class TechnologiesController < ApplicationController
   def show
   end
 
+  def populate_tech
+    @technologies = Company.find(params["company"]).Department.Category.Technology
+    render partial: 'technology_list'
+  end
+
+  def populate_tech_category
+    @technologies = Company.find(params["company"]).Department.Category.Technology
+    render partial: 'technology_list'
+  end
+
+  def getcategory
+    @categories = Company.find(params["company"]).Department.Category
+    render partial: 'category_company'
+  end
   # GET /technologies/new
   def new
     @technology = Technology.new
@@ -25,6 +39,8 @@ class TechnologiesController < ApplicationController
   # POST /technologies.json
   def create
     @technology = Technology.new(technology_params)
+    category = Category.find(params["technology_selected_category"])
+    category.Technology << @technology
 
     respond_to do |format|
       if @technology.save

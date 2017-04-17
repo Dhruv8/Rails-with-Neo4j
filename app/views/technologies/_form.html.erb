@@ -16,7 +16,14 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= select_tag(:company_selected_tech_new, options_for_select(Company.all.map { |p| [p.name, p.uuid]}), include_blank: 'Select Company')%>
+
   <div class="actions">
+  </br>
+  <div id = "category_for_technology">
+    
+  </div>
+  </br>
     <%= f.submit %>
   </div>
 <% end %>

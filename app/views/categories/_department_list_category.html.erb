@@ -1,0 +1,1 @@
+<%= select_tag(:department_selected_category, options_for_select(@departments.map {|p| [p.name, p.uuid] })) %>

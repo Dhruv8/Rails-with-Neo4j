@@ -2,7 +2,6 @@
   <% if category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
       <ul>
       <% category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,7 +14,12 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-
+  <div class = "field">
+    <%= select_tag(:company_selected_category, options_for_select(@company_list.map {|p| [p.name, p.uuid] }), include_blank: 'Select Company') %>
+  </div>
+  <div  id = 'departments_for_category'>
+  </div>
+  </br>
   <div class="actions">
     <%= f.submit %>
   </div>

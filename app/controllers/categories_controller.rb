@@ -4,7 +4,14 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+     @categories = Category.all
+
+  end
+
+  def populate_categories
+    # Fetching Category List
+    @categories = Company.find(params["company"]).Department.Category
+    render partial: 'category_list'
   end
 
   # GET /categories/1
@@ -15,6 +22,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @company_list = Company.all
   end
 
   # GET /categories/1/edit
@@ -25,7 +33,9 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
+    company = Company.find(params["company_selected_category"])
+    department = Department.find(params["department_selected_category"])
+    department.Category << @category
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
@@ -37,6 +47,13 @@ class CategoriesController < ApplicationController
     end
   end
 
+
+  
+  def get_departments
+    # Fetching Department List
+    @departments = Company.find(params["company"]).Department
+    render partial: 'department_list_category'
+  end
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
