@@ -1,4 +1,4 @@
-<%= select_tag(:technology_selected, options_for_select(@technology.map {|p| [p.name, p.uuid] }), include_blank: 'Select Tecnology') %>
+<%= select_tag(:technology_selected, options_for_select(@technology.map {|p| [p.name, p.uuid] }), include_blank: 'Select Tecnology',class: "col-md-offset-4 col-md-4 btn btn-default dropdown-toggle")%>
 </br>
 </br>
 
