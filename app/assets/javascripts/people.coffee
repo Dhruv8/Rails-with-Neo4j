@@ -16,7 +16,15 @@ $('document').ready ->
 		$.ajax
 			url: '/people/new/getcategories'
 			type: 'GET'		
-			data: {company: $('#company_select_employee').val(),department:$('department_selected_category').val()}
+			data: {company: $('#company_select_employee').val(),department:$('#department_selected_category').val()}
 			success: (data, textStatus, jqXHR) ->
 				$('#employee_criteria_new').append(data)
-		return		
+		return
+	$('body').delegate '#category_selected_type', 'change', ->
+		$.ajax
+			url: '/people/new/gettechnology'
+			type: 'GET'
+			data: {category: $('#category_selected_type').val() }
+			success: (data, textStatus, jqXHR) ->
+				$('#employee_criteria_new').append(data)
+		return					

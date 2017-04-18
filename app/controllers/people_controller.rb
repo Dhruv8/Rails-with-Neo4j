@@ -18,8 +18,14 @@ class PeopleController < ApplicationController
   end  
 
   def getcategories
-    byebug
-  end  
+    @category = Department.find(params["department"]).Category
+    render partial: 'list'
+  end 
+
+  def gettechnology
+    @technology = Category.find(params["category"]).Technology
+    render partial: 'technology_list'
+  end
   # GET /people/new
   def new
     @person = Person.new
@@ -33,7 +39,8 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-
+    technology = Technology.find(params["technology_selected"])
+    technology.Person << @person
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }

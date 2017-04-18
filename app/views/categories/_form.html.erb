@@ -10,17 +10,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field col-xs-4 col-md-offset-4">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class = "field">
-    <%= select_tag(:company_selected_category, options_for_select(@company_list.map {|p| [p.name, p.uuid] }), include_blank: 'Select Company') %>
-  </div>
-  <div  id = 'departments_for_category'>
+  <br/>
+  <div>
+    <%= select_tag(:company_selected_category, options_for_select(@company_list.map {|p| [p.name, p.uuid] }), include_blank: 'Select Company',class: "col-md-offset-4 col-xs-4 btn btn-default dropdown-toggle") %>
   </div>
   </br>
+  </br>
+  <div id = 'departments_for_category'>
+  </div>
+  </br>
+  </br>
+  </br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil,:class => "col-md-offset-4 col-xs-4 btn btn-primary" %>
   </div>
 <% end %>

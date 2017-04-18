@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/technologies/index/populate_tech_category' => 'technologies#populate_tech_category'
   get '/people/new/getdepartments' => 'people#getdepartments'
   get '/people/new/getcategories' => 'people#getcategories'
+  get '/people/new/gettechnology' => 'people#gettechnology'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

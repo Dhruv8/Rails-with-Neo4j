@@ -1,0 +1,4 @@
+<%= select_tag(:technology_selected, options_for_select(@technology.map {|p| [p.name, p.uuid] }), include_blank: 'Select Tecnology') %>
+</br>
+</br>
+

@@ -2,7 +2,6 @@
   <% if department.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
-
       <ul>
       <% department.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,18 +9,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="col-xs-5 col-md-offset-2">
+  <%= f.label :name ,class: "input-group" %>
+  <%= f.text_field :name ,class: "form-control"%>
   </div>
-
-  <div class = "field">
-    <%= select_tag(:company_selected, options_for_select(@company_list.map {|p| [p.name, p.uuid] })) %>
+  <br/>  
+  <br/>
+  <br/>
+  <div>
+  <br/>
+    <%= select_tag(:company_selected, options_for_select(Company.all.map {|p| [p.name, p.uuid] }),class: "col-md-offset-2 col-md-4 btn btn-default dropdown-toggle")%>
 
   </div>
-    
+  <br/>  
+  <br/>
+  <br/>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => "col-md-offset-2 col-md-4 btn btn-primary" %>
   </div>
+  <br/>
+  <br/>
 <% end %>
