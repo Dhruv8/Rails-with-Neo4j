@@ -1,6 +1,8 @@
-<h1>Editing Category</h1>
+<h1 style="text-align:center">Editing Category</h1>
 
 <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<div class="col-md-offset-4 col-xs-4"><%= link_to 'Show', @category, class: "btn btn-info btn-block"%></div> 
+<br/>
+<br/>
+<div class="col-md-offset-4 col-xs-4"><%= link_to 'Back', categories_path, class: "btn btn-info btn-block"%></div>
