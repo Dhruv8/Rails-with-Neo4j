@@ -11,18 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field form-group col-md-offset-4 col-md-4">
+  <div class="field form-group">
     <%= f.label :name %>
     <%= f.text_field :name,class: "form-control" %>
   </div>
   </br>
   <div>
-    <%= select_tag(:company_select_employee, options_for_select(Company.all.map {|p| [p.name, p.uuid]}), include_blank: 'Select Company',class: "col-md-offset-4 col-md-4 btn btn-default dropdown-toggle")%>
+    <%= select_tag(:company_select_employee, options_for_select(Company.all.map {|p| [p.name, p.uuid]}), include_blank: 'Select Company',class: "col-md-4 btn btn-default dropdown-toggle") if !@person.persisted? %>
   </div>  
-  </br>
+  <br/>
   <div id = "employee_criteria_new">
   </div>
+  <br/>
   <div class="actions">
-    <%= f.submit nil, :class => "col-md-offset-4 col-md-4 btn btn-primary" %>
+    <%= f.submit nil, :class => "btn btn-primary" %>
   </div>
 <% end %>

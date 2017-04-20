@@ -15,3 +15,9 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+$('document').ready(function() {
+	$("#menu-toggle").click(function(e) {
+		        e.preventDefault();
+		        $("#wrapper").toggleClass("toggled");
+		    });
+});	

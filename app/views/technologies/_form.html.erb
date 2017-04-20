@@ -11,21 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field form-group col-md-offset-4 col-md-4">
+  <div class="field form-group">
     <%= f.label :name %>
     <%= f.text_field :name ,class: "form-control"%>
   </div>
   <div class = "form-group">
-  <%= select_tag(:company_selected_tech_new, options_for_select(Company.all.map { |p| [p.name, p.uuid]}), include_blank: 'Select Company',class: "col-md-offset-4 col-md-4 btn btn-default dropdown-toggle")%>
+  <%= select_tag(:company_selected_tech_new, options_for_select(Company.all.map { |p| [p.name, p.uuid]}), include_blank: 'Select Company',class: "col-md-4 btn btn-default dropdown-toggle") if !@technology.persisted? %>
   </div>
-  <br/>
   <br/>
   <div id = "category_for_technology">
   </div>
-  <br/>
-  <br/>
-  
+  <br/>  
   <div class="actions">
-    <%= f.submit nil, :class => "col-md-offset-4 col-md-4 btn btn-primary" %>
+    <%= f.submit nil, :class => "btn btn-primary" %>
   </div>
 <% end %>
