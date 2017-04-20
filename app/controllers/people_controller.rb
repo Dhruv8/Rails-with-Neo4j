@@ -12,6 +12,10 @@ class PeopleController < ApplicationController
   def show
   end
 
+  def getpeople
+    @people = Company.find(params["company"]).Department.Category.Technology.Person
+    render partial: 'employee_list'
+  end  
   def getdepartments
     @departments = Company.find(params["company"]).Department 
     render partial: 'categories/department_list_category'

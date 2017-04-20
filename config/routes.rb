@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/people/new/getdepartments' => 'people#getdepartments'
   get '/people/new/getcategories' => 'people#getcategories'
   get '/people/new/gettechnology' => 'people#gettechnology'
+  get '/people/index/getpeople' => 'people#getpeople'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

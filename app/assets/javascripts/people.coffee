@@ -27,4 +27,14 @@ $('document').ready ->
 			data: {category: $('#category_selected_type').val() }
 			success: (data, textStatus, jqXHR) ->
 				$('#employee_criteria_new').append(data)
-		return					
+		return
+
+	$('#company_tech_index').change ->
+    $.ajax
+      url: '/people/index/getpeople'
+      type: 'GET'
+      data: {company:$('#company_tech_index').val()}
+      success: (data, textStatus, jqXHR) ->      			
+                $('#employee_list').html(data)
+  	return
+						
