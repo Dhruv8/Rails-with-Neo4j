@@ -1,6 +1,6 @@
 require_relative 'boot'
 
-require "rails"
+require "rails/all"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -20,9 +20,9 @@ Bundler.require(*Rails.groups)
 module SharePortalApp
   class Application < Rails::Application
     
-    config.generators do |g|
-      g.orm             :neo4j
-    end
+    # config.generators do |g|
+    #   g.orm             :neo4j
+    # end
 
     # Configure where the embedded neo4j database should exist
     # Notice embedded db is only available for JRuby
